@@ -1,0 +1,36 @@
+.mosaic-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
+
+.thumbnail {
+    position: relative;
+}
+
+.thumbnail img {
+    width: 100%;
+    vertical-align: middle;
+    filter: brightness(75%);
+}
+
+.thumbnail img:hover {
+    filter: brightness(125%);
+}
+
+.tag {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 100%);
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+    background-color: rgba(34, 34, 34, 0.9);
+    color: #0074d9;
+    z-index: 999;
+    width: 150%;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
