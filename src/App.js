@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
-import Filters from "./components/Filters";
 import Mosaic from "./components/Mosaic";
 import Select from "react-select";
 
@@ -18,11 +17,6 @@ export default function App() {
         [],
         [],
     ]);
-
-    // const updateFilters = (f) => {
-    //     setFilters(f);
-    //     console.log(f);
-    // };
 
     const handleChange = (selected, index) => {
         let copy = [...filters];
@@ -98,7 +92,6 @@ export default function App() {
                     onChange={(s) => handleChange(s, 8)}
                 />
             </>
-            {/* <Filters filters={filters} func={updateFilters} /> */}
             <Mosaic
                 data={data
                     .filter((nft) => {
