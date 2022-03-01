@@ -43,6 +43,11 @@ h1 {
     color: var(--primary);
 }
 
+footer {
+    font-size: 1rem;
+    text-align: center;
+}
+
 .primary {
     color: var(--primary);
 }
