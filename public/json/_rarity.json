@@ -1,0 +1,72 @@
+{
+    "Background": {
+        "Blue": 1206,
+        "Green": 1258,
+        "Pink": 1269,
+        "Purple": 1211,
+        "Radix": 843,
+        "Red": 1290,
+        "White": 1679,
+        "Yellow": 1244
+    },
+    "Skin": {
+        "Afroamerican": 2956,
+        "Alien": 514,
+        "Ape": 632,
+        "Eurasian": 5380,
+        "Zombie": 518
+    },
+    "Beard": {
+        "Big beard": 983,
+        "Mustache": 988,
+        "Nothing": 7084,
+        "Sideburn": 945
+    },
+    "Mouth": { "Normal": 8119, "Sad": 1881 },
+    "Earrings": { "Diamond": 1133, "Gold": 1197, "Nothing": 7670 },
+    "Headgear": {
+        "Beanie": 583,
+        "Bold": 581,
+        "Brain": 577,
+        "Clown": 630,
+        "Frog": 583,
+        "Green beret": 578,
+        "Haircut": 583,
+        "Indian": 589,
+        "Japanese": 599,
+        "Laurel wealth": 549,
+        "McDonalds cap": 571,
+        "Military hat": 585,
+        "Nothing": 599,
+        "Pikachu": 590,
+        "Purple spike": 629,
+        "Rose": 572,
+        "Yellow headband": 602
+    },
+    "Eyes": {
+        "3D glasses": 809,
+        "Alien": 514,
+        "Black glasses": 807,
+        "Brown eyes": 3245,
+        "Heterochromia": 863,
+        "Laser": 787,
+        "Ninja": 815,
+        "Pirate": 800,
+        "VR headset": 842,
+        "Zombie": 518
+    },
+    "Mouth accessory": {
+        "Cigarette": 1114,
+        "Electronic cigarette": 1119,
+        "Face mask": 1136,
+        "Nothing": 4420,
+        "Pipe": 1107,
+        "Weed": 1104
+    },
+    "Extra": {
+        "Asterix": 119,
+        "Face shield ": 121,
+        "Gas mask": 99,
+        "Nothing": 9661
+    }
+}

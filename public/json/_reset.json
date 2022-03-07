@@ -1,0 +1,67 @@
+{
+    "Background": {
+        "Blue": [],
+        "Green": [],
+        "Pink": [],
+        "Purple": [],
+        "Radix": [],
+        "Red": [],
+        "White": [],
+        "Yellow": []
+    },
+    "Skin": {
+        "Afroamerican": [],
+        "Alien": [],
+        "Ape": [],
+        "Eurasian": [],
+        "Zombie": []
+    },
+    "Beard": { "Big beard": [], "Mustache": [], "Nothing": [], "Sideburn": [] },
+    "Mouth": { "Normal": [], "Sad": [] },
+    "Earrings": { "Diamond": [], "Gold": [], "Nothing": [] },
+    "Headgear": {
+        "Beanie": [],
+        "Bold": [],
+        "Brain": [],
+        "Clown": [],
+        "Frog": [],
+        "Green beret": [],
+        "Haircut": [],
+        "Indian": [],
+        "Japanese": [],
+        "Laurel wealth": [],
+        "McDonalds cap": [],
+        "Military hat": [],
+        "Nothing": [],
+        "Pikachu": [],
+        "Purple spike": [],
+        "Rose": [],
+        "Yellow headband": []
+    },
+    "Eyes": {
+        "3D glasses": [],
+        "Alien": [],
+        "Black glasses": [],
+        "Brown eyes": [],
+        "Heterochromia": [],
+        "Laser": [],
+        "Ninja": [],
+        "Pirate": [],
+        "VR headset": [],
+        "Zombie": []
+    },
+    "Mouth accessory": {
+        "Cigarette": [],
+        "Electronic cigarette": [],
+        "Face mask": [],
+        "Nothing": [],
+        "Pipe": [],
+        "Weed": []
+    },
+    "Extra": {
+        "Asterix": [],
+        "Face shield ": [],
+        "Gas mask": [],
+        "Nothing": []
+    }
+}
