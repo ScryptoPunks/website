@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Mosaic from "./../Mosaic";
 import Select from "react-select";
+import "./index.css";
 
 export default function App() {
     const [data, setData] = useState([]);
+    const [layers, setLayers] = useState([]);
     const [options, setOptions] = useState([]);
     const [filters, setFilters] = useState([
         [],
@@ -33,8 +35,10 @@ export default function App() {
         fetch("./json/_options.json")
             .then((res) => res.json())
             .then((json) => {
-                for (let layer of Object.keys(json))
+                for (let layer of Object.keys(json)) {
+                    setLayers((prevState) => [...prevState, layer]);
                     setOptions((prevState) => [...prevState, json[layer]]);
+                }
             });
         fetch("./json/_metadata.json")
             .then((res) => res.json())
@@ -42,54 +46,19 @@ export default function App() {
     }, []);
 
     return (
-        <>
-            <>
-                <Select
-                    isMulti
-                    options={options[0]}
-                    onChange={(s) => handleChange(s, 0)}
-                />
-                <Select
-                    isMulti
-                    options={options[1]}
-                    onChange={(s) => handleChange(s, 1)}
-                />
-                <Select
-                    isMulti
-                    options={options[2]}
-                    onChange={(s) => handleChange(s, 2)}
-                />
-                <Select
-                    isMulti
-                    options={options[3]}
-                    onChange={(s) => handleChange(s, 3)}
-                />
-                <Select
-                    isMulti
-                    options={options[4]}
-                    onChange={(s) => handleChange(s, 4)}
-                />
-                <Select
-                    isMulti
-                    options={options[5]}
-                    onChange={(s) => handleChange(s, 5)}
-                />
-                <Select
-                    isMulti
-                    options={options[6]}
-                    onChange={(s) => handleChange(s, 6)}
-                />
-                <Select
-                    isMulti
-                    options={options[7]}
-                    onChange={(s) => handleChange(s, 7)}
-                />
-                <Select
-                    isMulti
-                    options={options[8]}
-                    onChange={(s) => handleChange(s, 8)}
-                />
-            </>
+        <div className="collection-container">
+            <div className="select-container">
+                {layers.map((layer, index) => (
+                    <div className="select" key={index}>
+                        <span>{layer}</span>
+                        <Select
+                            isMulti
+                            options={options[index]}
+                            onChange={(s) => handleChange(s, index)}
+                        />
+                    </div>
+                ))}
+            </div>
             <Mosaic
                 data={data
                     .filter((nft) => {
@@ -107,6 +76,6 @@ export default function App() {
                     })
                     .slice(0, 100)}
             />
-        </>
+        </div>
     );
 }
