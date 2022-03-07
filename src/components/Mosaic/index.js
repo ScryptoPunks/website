@@ -1,4 +1,5 @@
 import "./index.css";
+import { Link } from "react-router-dom";
 
 export default function Mosaic({ data }) {
     const handleMouseOver = (e) => {
@@ -12,7 +13,7 @@ export default function Mosaic({ data }) {
     return (
         <div className="mosaic-container">
             {data.map((nft) => (
-                <a href={"/" + nft["edition"]} key={nft["edition"]}>
+                <Link to={"../nfts/" + nft["edition"]} key={nft["edition"]}>
                     <div className="thumbnail">
                         <img
                             alt="nft"
@@ -22,7 +23,7 @@ export default function Mosaic({ data }) {
                         ></img>
                         <div className="tag">SPUNKS #{nft["edition"]}</div>
                     </div>
-                </a>
+                </Link>
             ))}
         </div>
     );
