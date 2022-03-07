@@ -13,7 +13,7 @@ export default function Mosaic({ data }) {
     return (
         <div className="mosaic-container">
             {data.map((nft) => (
-                <Link to={"../nfts/" + nft["edition"]} key={nft["edition"]}>
+                <Link to={"/nfts/" + nft["edition"]} key={nft["edition"]}>
                     <div className="thumbnail">
                         <img
                             alt="nft"
