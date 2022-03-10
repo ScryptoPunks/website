@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
+import gif from "./../../assets/mint.gif"
+import gallery from "./../../assets/gallery.png";
 
 export default function Home() {
     const phrase = "Join the revolution.";
@@ -46,7 +48,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="right">
-                            <img src="assets/square.png" alt="gallery" />
+                            <img src={gallery} alt="gallery" />
                         </div>
                     </div>
                 </div>
@@ -54,7 +56,7 @@ export default function Home() {
                 <div id="mint">
                     <div className="mint-container">
                         <div className="left">
-                            <img src="assets/mint.gif" alt="" />
+                            <img src={gif} alt="gif" />
                         </div>
                         <div className="right">
                             <h1>MINT</h1>
