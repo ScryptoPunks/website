@@ -60,18 +60,20 @@ export default function Home() {
                             <h1>MINT</h1>
                             <div className="text">
                                 While waiting for the Babylon release, scheduled
-                                for late 2022, you can reserve yours
-                                ScryptoPunks by sending XRD to the official
-                                ScryptoPunks wallet. The price of an NFT is 50
-                                XRD, and you can only buy a maximum of 250 of
-                                them. In exchange, some SPUNKS tokens will be
-                                sent to your wallet.
+                                by the Radix team for late 2022,{" "}
+                                <i>
+                                    you can reserve NFTs by sending XRD to
+                                    the official ScryptoPunks wallet. In
+                                    exchange, SPUNKS tokens will be sent to
+                                    your wallet.
+                                </i>{" "}
+                                <strong>SOLD OUT</strong>
                                 <br />
                                 <br />
-                                Once Babylon is live, we will deploy our Smart
-                                Contract & minting dApp. This will allow you to
-                                connect your wallet and trade your SPUNKS token
-                                to mint randomly selected NFTs!
+                                Once Babylon is live, we will deploy
+                                the Smart Contract. You will
+                                then be able to trade your SPUNKS tokens and
+                                mint randomly selected NFTs!
                             </div>
                         </div>
                     </div>
@@ -135,8 +137,8 @@ export default function Home() {
                     <div className="faq-item" onClick={handleFAQClick}>
                         <div className="question">What's the max supply?</div>
                         <div className="answer">
-                            Like the OG Cryptopunks collection, there will
-                            be 10k NFTs and not one more!
+                            Like the OG Cryptopunks collection, there will be
+                            10k NFTs and not one more!
                         </div>
                     </div>
                     <div className="faq-item" onClick={handleFAQClick}>
