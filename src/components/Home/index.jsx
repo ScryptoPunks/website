@@ -8,9 +8,7 @@ export default function Home() {
     const [index, setIndex] = useState(0);
 
     const handleFAQClick = (e) => {
-        e.stopPropagation();
-        console.log(e.target);
-        e.target.classList.toggle("active");
+        e.target.parentElement.classList.toggle("active");
     };
 
     useEffect(() => {
@@ -143,14 +141,14 @@ export default function Home() {
                             information!
                         </div>
                     </div>
-                    <div className="faq-item">
+                    <div className="faq-item" onClick={handleFAQClick}>
                         <div className="question">What's the max supply?</div>
                         <div className="answer">
                             Like the OG Cryptopunks collection, there will only
                             be 10k Punks, not a single one more!
                         </div>
                     </div>
-                    <div className="faq-item">
+                    <div className="faq-item" onClick={handleFAQClick}>
                         <div className="question">
                             I sent XRD but still haven't received any SPUNKS
                             token?
@@ -161,7 +159,7 @@ export default function Home() {
                             before arriving in your wallet.
                         </div>
                     </div>
-                    <div className="faq-item">
+                    <div className="faq-item" onClick={handleFAQClick}>
                         <div className="question">Who are you?</div>
                         <div className="answer">
                             The team is made of two developers. We have been

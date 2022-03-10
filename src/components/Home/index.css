@@ -143,7 +143,7 @@ button:hover::after {
     display: none;
 }
 
-.answer.active {
+.active .answer {
     display: block;
 }
 
