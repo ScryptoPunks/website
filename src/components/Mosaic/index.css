@@ -1,18 +1,19 @@
 .mosaic-container {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); */
-    grid-template-columns: repeat(10, 1fr);
-    gap: 0.25rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
 }
 
 .thumbnail {
     position: relative;
 }
 
-.thumbnail img {
+.thumbnail img { 
     width: 100%;
     vertical-align: middle;
     filter: brightness(75%);
+    border-radius: .5rem;
 }
 
 .thumbnail img:hover {
