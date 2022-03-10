@@ -4,15 +4,16 @@ export default function Header() {
     return (
         <header>
             <div>
-                <a href="https://scryptopunks.com" className="logo">
+                <a href="/" className="logo">
                     SCRYPTO PUNKS
                 </a>
             </div>
             <nav>
-                <a href="#about">ABOUT</a>
-                <a href="#mint">MINT</a>
-                <a href="#roadmap">ROADMAP</a>
-                <a href="#faq">FAQ</a>
+                <a href="/#about">ABOUT</a>
+                <a href="/#mint">MINT</a>
+                <a href="/collection">COLLECTION</a>
+                <a href="/#roadmap">ROADMAP</a>
+                <a href="/#faq">FAQ</a>
             </nav>
             <div className="socials">
                 <a

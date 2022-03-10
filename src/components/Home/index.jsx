@@ -23,7 +23,7 @@ export default function Home() {
             <div className="landing">
                 <h1 className="typing">{phrase.substring(0, index)}</h1>
                 <div className="learn-more">
-                    <a href="/collection">Explore the collection</a>
+                    <a href="/collection">Explore</a>
                 </div>
             </div>
             <div className="main-container">
