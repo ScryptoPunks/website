@@ -5,6 +5,11 @@ header {
     padding: 1rem;
     border-bottom: 1px solid #000;
     background: rgba(17, 17, 17, 0.9);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .logo {
@@ -24,4 +29,10 @@ header a {
     font-family: "Montserrat", sans-serif;
     padding: 0 1rem;
     font-size: 1rem;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

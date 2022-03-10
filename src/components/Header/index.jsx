@@ -14,7 +14,7 @@ export default function Header() {
                 <a href="#roadmap">ROADMAP</a>
                 <a href="#faq">FAQ</a>
             </nav>
-            <div>
+            <div className="socials">
                 <a
                     target="_blank"
                     href="https://twitter.com/ScryptoPunks"

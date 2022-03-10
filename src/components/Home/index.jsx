@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
-import gif from "./../../assets/mint.gif"
+import gif from "./../../assets/mint.gif";
 import gallery from "./../../assets/gallery.png";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
             <div className="landing">
                 <h1 className="typing">{phrase.substring(0, index)}</h1>
                 <div className="learn-more">
-                    <a href="#mint">Reserve now</a>
+                    <a href="/collection">Explore the collection</a>
                 </div>
             </div>
             <div className="main-container">
@@ -72,15 +72,6 @@ export default function Home() {
                                 Contract & minting dApp. This will allow you to
                                 connect your wallet and trade your SPUNKS token
                                 to mint randomly selected NFTs!
-                            </div>
-                            <div className="mint-address">
-                                <h3>Wallet address:</h3>
-                                <div className="address-container">
-                                    <div className="address">
-                                        rdx1qspsswum8q6k3v6yawvahwjzxga2gzt5jtnfjnckvmrvgemkp0asnvq8d77xv
-                                    </div>
-                                    <button>Copy</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -144,30 +135,20 @@ export default function Home() {
                     <div className="faq-item" onClick={handleFAQClick}>
                         <div className="question">What's the max supply?</div>
                         <div className="answer">
-                            Like the OG Cryptopunks collection, there will only
-                            be 10k Punks, not a single one more!
-                        </div>
-                    </div>
-                    <div className="faq-item" onClick={handleFAQClick}>
-                        <div className="question">
-                            I sent XRD but still haven't received any SPUNKS
-                            token?
-                        </div>
-                        <div className="answer">
-                            Please note that the process of sending SPUNKS
-                            tokens is done manually, so it can take up to 24h
-                            before arriving in your wallet.
+                            Like the OG Cryptopunks collection, there will
+                            be 10k NFTs and not one more!
                         </div>
                     </div>
                     <div className="faq-item" onClick={handleFAQClick}>
                         <div className="question">Who are you?</div>
                         <div className="answer">
                             The team is made of two developers. We have been
-                            creating projects for months, on others Rust-based
-                            blockchains such as Solana or Elrond, but have never
-                            been satisfied by the technology, until we
-                            discovered Radix. We immediately felt in love with
-                            the ecosystem and started building ScryptoPunks.
+                            building projects on other Rust-based blockchains
+                            such as Solana and Elrond for months. Until then, we
+                            were always disappointed by how these handle assets
+                            and transactions, until we discovered Radix. We
+                            immediately felt in love with the ecosystem and
+                            created ScryptoPunks!
                         </div>
                     </div>
                 </div>
