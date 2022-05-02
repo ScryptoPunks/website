@@ -70,6 +70,22 @@ export default function NFT() {
                                 );
                             })}
                     </div>
+
+                    {/* TWITTER BUTTON */}
+                    <a
+                        href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                        className="twitter-share-button"
+                        data-size="large"
+                        data-text={`Check out this cool @ScryptoPunks NFT!`}
+                        data-show-count="false"
+                    >
+                        Share
+                    </a>
+                    <script
+                        async
+                        src="https://platform.twitter.com/widgets.js"
+                        charSet="utf-8"
+                    ></script>
                 </div>
             ) : (
                 <ErrorPage />
