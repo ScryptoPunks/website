@@ -6,6 +6,7 @@ import "./index.css";
 export default function NFT() {
     const [attributes, setAttributes] = useState();
     const [rarity, setRarity] = useState();
+    const [rank, setRank] = useState();
     const [valid, setValid] = useState(true);
     const { id } = useParams();
 
@@ -18,6 +19,9 @@ export default function NFT() {
             fetch("/json/_rarity.json")
                 .then((res) => res.json())
                 .then((json) => setRarity(json));
+            fetch("/json/_ranks.json")
+                .then((res) => res.json())
+                .then((json) => setRank(json[id]));
         }
     }, [id]);
 
@@ -70,6 +74,8 @@ export default function NFT() {
                                 );
                             })}
                     </div>
+
+                    Rank: {rank}
 
                     {/* TWITTER BUTTON */}
                     <a
