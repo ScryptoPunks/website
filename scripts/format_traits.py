@@ -2,6 +2,7 @@ import json
 
 f = open("./../public/json/_reset.json")
 data = json.load(f)
+
 options = []
 
 for layer, val in data.items():
