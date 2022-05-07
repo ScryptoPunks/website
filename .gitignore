@@ -26,3 +26,5 @@ yarn-error.log*
 *.png
 *.jpg
 *.html
+
+package-lock.json
