@@ -1,13 +1,16 @@
 {
     "Background": {
-        "Blue": [],
-        "Green": [],
-        "Pink": [],
+        "Burnt sienna": [],
+        "Dark blue": [],
+        "Dark purple": [],
+        "Grey": [],
+        "Lavander": [],
+        "Light blue": [],
         "Purple": [],
         "Radix": [],
         "Red": [],
-        "White": [],
-        "Yellow": []
+        "Sand": [],
+        "White": []
     },
     "Skin": {
         "Afroamerican": [],
@@ -16,41 +19,67 @@
         "Eurasian": [],
         "Zombie": []
     },
-    "Beard": { "Big beard": [], "Mustache": [], "Nothing": [], "Sideburn": [] },
-    "Mouth": { "Normal": [], "Sad": [] },
-    "Earrings": { "Diamond": [], "Gold": [], "Nothing": [] },
+    "Beard": {
+        "Big beard": [],
+        "Mustache": [],
+        "Nothing": [],
+        "Scar": [],
+        "Sideburn": []
+    },
+    "Mouth": {
+        "Normal": [],
+        "Sad": []
+    },
+    "Earrings": {
+        "Diamond": [],
+        "Gold": [],
+        "Nothing": []
+    },
     "Headgear": {
         "Beanie": [],
+        "Blond spike": [],
+        "Blue headband": [],
         "Bold": [],
-        "Brain": [],
-        "Clown": [],
+        "Charlie hat": [],
+        "Cryptopunks haircut": [],
+        "Dead cap": [],
+        "Devil": [],
         "Frog": [],
         "Green beret": [],
         "Haircut": [],
+        "Haircut2": [],
+        "Halo": [],
         "Indian": [],
-        "Japanese": [],
         "Laurel wealth": [],
+        "Locks": [],
         "McDonalds cap": [],
         "Military hat": [],
+        "Military": [],
         "Nothing": [],
         "Pikachu": [],
         "Purple spike": [],
         "Rose": [],
+        "Scientist": [],
         "Yellow headband": []
     },
     "Eyes": {
         "3D glasses": [],
         "Alien": [],
         "Black glasses": [],
+        "Blue glasses": [],
+        "Blue visor": [],
         "Brown eyes": [],
         "Heterochromia": [],
-        "Laser": [],
+        "Multicolor glasses": [],
         "Ninja": [],
+        "Oculus": [],
+        "Pink visor": [],
         "Pirate": [],
-        "VR headset": [],
+        "Tired": [],
         "Zombie": []
     },
     "Mouth accessory": {
+        "Armor": [],
         "Cigarette": [],
         "Electronic cigarette": [],
         "Face mask": [],
@@ -59,7 +88,6 @@
         "Weed": []
     },
     "Extra": {
-        "Asterix": [],
         "Face shield ": [],
         "Gas mask": [],
         "Nothing": []
