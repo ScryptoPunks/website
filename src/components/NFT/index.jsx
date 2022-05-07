@@ -13,7 +13,7 @@ export default function NFT() {
     useEffect(() => {
         if (id < 1 || id > 10000) setValid(false);
         else {
-            fetch(`/json/${id}.json`)
+            fetch(`/build/json/${id}.json`)
                 .then((res) => res.json())
                 .then((json) => setAttributes(json["attributes"]));
             fetch("/json/_rarity.json")
@@ -35,7 +35,7 @@ export default function NFT() {
                             <img
                                 className="nft-img"
                                 alt="nft"
-                                src={`/images/${id}.png`}
+                                src={`/build/images/${id}.png`}
                             />
                         </div>
                     </div>
