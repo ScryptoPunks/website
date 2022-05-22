@@ -158,7 +158,12 @@ export default function App() {
                         .slice(0, range)}
                 />
             )}
-            <button onClick={() => setRange(range + 100)}>Load more</button>
+            <div
+                className="load-more-button"
+                onClick={() => setRange(range + 100)}
+            >
+                Load more
+            </div>
         </div>
     );
 }

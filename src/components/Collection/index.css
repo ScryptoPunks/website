@@ -14,3 +14,12 @@
     gap: 0.25rem;
     padding: 1rem 0;
 }
+
+.load-more-button {
+    margin: .5rem auto 2rem;
+    width: fit-content;
+    padding: 0.25rem .5rem;
+    border: 1px solid var(--light);
+    border-radius: .25rem;
+    cursor: url("./../../assets/pointer.png"), auto;
+}
