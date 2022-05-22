@@ -18,6 +18,7 @@ export default function App() {
         [],
         [],
     ]);
+    const [range, setRange] = useState(100);
 
     const handleChange = (selected, index) => {
         let copy = [...filters];
@@ -47,62 +48,117 @@ export default function App() {
 
     return (
         <div className="collection-container">
-            <div className="select-container">
-                {layers.map((layer, index) => (
-                    <div className="select" key={index}>
-                        <span>{layer}</span>
-                        <Select
-                            isMulti
-                            options={options[index]}
-                            onChange={(s) => handleChange(s, index)}
-                            className="select-input"
-                            theme={(theme) => ({
-                                ...theme,
-                                colors: {
-                                    ...theme.colors,
-                                    primary25: "#222",
-                                    neutral0: "#111",
-                                    dangerLight: "#ffdc00",
-                                    primary: "#ffdc00",
-                                },
-                            })}
-                        />
-                    </div>
-                ))}
-                {
-                    data.filter((nft) => {
-                        return (
-                            checkValid(filters[0], nft.attributes[0].value) &&
-                            checkValid(filters[1], nft.attributes[1].value) &&
-                            checkValid(filters[2], nft.attributes[2].value) &&
-                            checkValid(filters[3], nft.attributes[3].value) &&
-                            checkValid(filters[4], nft.attributes[4].value) &&
-                            checkValid(filters[5], nft.attributes[5].value) &&
-                            checkValid(filters[6], nft.attributes[6].value) &&
-                            checkValid(filters[7], nft.attributes[7].value) &&
-                            checkValid(filters[8], nft.attributes[8].value)
-                        );
-                    }).length
-                }{" "}
-                NFTs found
+            <div className="select-container-wrapper">
+                <div className="select-container">
+                    {layers.map((layer, index) => (
+                        <div className="select" key={index}>
+                            <span>{layer}</span>
+                            <Select
+                                isMulti
+                                options={options[index]}
+                                onChange={(s) => handleChange(s, index)}
+                                className="select-input"
+                                theme={(theme) => ({
+                                    ...theme,
+                                    colors: {
+                                        ...theme.colors,
+                                        primary25: "#222",
+                                        neutral0: "#111",
+                                        dangerLight: "#ffdc00",
+                                        primary: "#ffdc00",
+                                    },
+                                })}
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className="count">
+                    {
+                        data.filter((nft) => {
+                            return (
+                                checkValid(
+                                    filters[0],
+                                    nft.attributes[0].value
+                                ) &&
+                                checkValid(
+                                    filters[1],
+                                    nft.attributes[1].value
+                                ) &&
+                                checkValid(
+                                    filters[2],
+                                    nft.attributes[2].value
+                                ) &&
+                                checkValid(
+                                    filters[3],
+                                    nft.attributes[3].value
+                                ) &&
+                                checkValid(
+                                    filters[4],
+                                    nft.attributes[4].value
+                                ) &&
+                                checkValid(
+                                    filters[5],
+                                    nft.attributes[5].value
+                                ) &&
+                                checkValid(
+                                    filters[6],
+                                    nft.attributes[6].value
+                                ) &&
+                                checkValid(
+                                    filters[7],
+                                    nft.attributes[7].value
+                                ) &&
+                                checkValid(filters[8], nft.attributes[8].value)
+                            );
+                        }).length
+                    }{" "}
+                    NFTs found
+                </div>
             </div>
-            <Mosaic
-                data={data
-                    .filter((nft) => {
-                        return (
-                            checkValid(filters[0], nft.attributes[0].value) &&
-                            checkValid(filters[1], nft.attributes[1].value) &&
-                            checkValid(filters[2], nft.attributes[2].value) &&
-                            checkValid(filters[3], nft.attributes[3].value) &&
-                            checkValid(filters[4], nft.attributes[4].value) &&
-                            checkValid(filters[5], nft.attributes[5].value) &&
-                            checkValid(filters[6], nft.attributes[6].value) &&
-                            checkValid(filters[7], nft.attributes[7].value) &&
-                            checkValid(filters[8], nft.attributes[8].value)
-                        );
-                    })
-                    .slice(0, 100)}
-            />
+            {data && (
+                <Mosaic
+                    data={data
+                        .filter((nft) => {
+                            return (
+                                checkValid(
+                                    filters[0],
+                                    nft.attributes[0].value
+                                ) &&
+                                checkValid(
+                                    filters[1],
+                                    nft.attributes[1].value
+                                ) &&
+                                checkValid(
+                                    filters[2],
+                                    nft.attributes[2].value
+                                ) &&
+                                checkValid(
+                                    filters[3],
+                                    nft.attributes[3].value
+                                ) &&
+                                checkValid(
+                                    filters[4],
+                                    nft.attributes[4].value
+                                ) &&
+                                checkValid(
+                                    filters[5],
+                                    nft.attributes[5].value
+                                ) &&
+                                checkValid(
+                                    filters[6],
+                                    nft.attributes[6].value
+                                ) &&
+                                checkValid(
+                                    filters[7],
+                                    nft.attributes[7].value
+                                ) &&
+                                checkValid(filters[8], nft.attributes[8].value)
+                            );
+                        })
+                        .slice(0, range)}
+                />
+            )}
+            <button onClick={() => setRange(range + 100)}>Load more</button>
         </div>
     );
 }

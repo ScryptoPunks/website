@@ -1,7 +1,6 @@
 .mosaic-container {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); */
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 0.5rem;
 }
 

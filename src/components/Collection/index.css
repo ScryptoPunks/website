@@ -1,11 +1,16 @@
 .collection-container {
-    width: 85%;
+    width: 75%;
     margin: 0 auto;
+}
+
+.select-container-wrapper {
+    margin: 5rem 0;
+    text-align: center;
 }
 
 .select-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 0.25rem;
-    margin: 5rem;
+    padding: 1rem 0;
 }
