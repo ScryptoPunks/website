@@ -8,22 +8,27 @@ export default function NFT() {
     const [attributes, setAttributes] = useState();
     const [rarity, setRarity] = useState();
     const [rank, setRank] = useState();
+    const [owner, setOwner] = useState();
     const [valid, setValid] = useState(true);
     const { id } = useParams();
 
     useEffect(() => {
         if (id < 1 || id > 10000) setValid(false);
-        // else {
-        //     fetch(`${repo}/json/${id}.json`)
-        //         .then((res) => res.json())
-        //         .then((json) => setAttributes(json["attributes"]));
-        //     fetch(`${repo}/data/rarity.json`)
-        //         .then((res) => res.json())
-        //         .then((json) => setRarity(json));
-        //     fetch(`${repo}/data/ranks.json`)
-        //         .then((res) => res.json())
-        //         .then((json) => setRank(json[id]));
-        // }
+        else {
+            fetch("/json/database.json")
+                .then((res) => res.json())
+                .then((json) => setOwner(json[id.padStart(4, "0")]));
+
+            //     fetch(`${repo}/json/${id}.json`)
+            //         .then((res) => res.json())
+            //         .then((json) => setAttributes(json["attributes"]));
+            //     fetch(`${repo}/data/rarity.json`)
+            //         .then((res) => res.json())
+            //         .then((json) => setRarity(json));
+            //     fetch(`${repo}/data/ranks.json`)
+            //         .then((res) => res.json())
+            //         .then((json) => setRank(json[id]));
+        }
     }, [id]);
 
     return (
@@ -87,12 +92,12 @@ export default function NFT() {
                         })}
                     </div>
 
-                    <div className="rank-container">
-                        <span>Rank: {rank}</span>
-                        <div
-                            style={{ width: "100%", margin: "0 1rem" }}
-                            className="skeleton-title skeleton-anim"
-                        ></div>
+                    <div className="info-container">
+                        <div className="owner">Owner: {owner}</div>
+                        <div className="rank">
+                            <span>Rank: {rank}</span>
+                            <div className="skeleton-title skeleton-anim"></div>
+                        </div>
                     </div>
 
                     {/* TWITTER BUTTON */}
