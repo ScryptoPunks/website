@@ -8,11 +8,11 @@
     position: relative;
 }
 
-.thumbnail img { 
+.thumbnail img {
     width: 100%;
     vertical-align: middle;
     filter: brightness(75%);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 }
 
 .thumbnail img:hover {
@@ -34,4 +34,44 @@
     text-align: center;
     font-size: 0.8rem;
     font-weight: 600;
+}
+
+/* SKELETON */
+
+.skeleton-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.top-img {
+    display: block;
+    height: 150px;
+    width: 100%;
+    background: #4c4c4c;
+    object-fit: cover;
+}
+
+.top-img.skeleton-anim,
+.skeleton-title,
+.skeleton-text {
+    animation: skeleton 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton {
+    to {
+        opacity: 0.6;
+    }
+}
+
+.skeleton-title,
+.skeleton-text {
+    width: 40%;
+    height: 20px;
+    background: #4c4c4c;
+}
+
+.skeleton-text {
+    height: 10px;
 }

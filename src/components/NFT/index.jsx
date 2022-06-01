@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ErrorPage from "../ErrorPage";
 import { useParams } from "react-router-dom";
+import { repo } from "../../config";
 import "./index.css";
 
 export default function NFT() {
@@ -12,31 +13,32 @@ export default function NFT() {
 
     useEffect(() => {
         if (id < 1 || id > 10000) setValid(false);
-        else {
-            fetch(`/build/json/${id}.json`)
-                .then((res) => res.json())
-                .then((json) => setAttributes(json["attributes"]));
-            fetch("/json/_rarity.json")
-                .then((res) => res.json())
-                .then((json) => setRarity(json));
-            fetch("/json/_ranks.json")
-                .then((res) => res.json())
-                .then((json) => setRank(json[id]));
-        }
+        // else {
+        //     fetch(`${repo}/json/${id}.json`)
+        //         .then((res) => res.json())
+        //         .then((json) => setAttributes(json["attributes"]));
+        //     fetch(`${repo}/data/rarity.json`)
+        //         .then((res) => res.json())
+        //         .then((json) => setRarity(json));
+        //     fetch(`${repo}/data/ranks.json`)
+        //         .then((res) => res.json())
+        //         .then((json) => setRank(json[id]));
+        // }
     }, [id]);
 
     return (
         <>
             {valid ? (
-                <div className="container">
+                <div className="nft-container">
                     <div className="left-panel">
                         <div className="nft-tag">#{id}</div>
                         <div className="image-container">
-                            <img
+                            {/* <img
                                 className="nft-img"
                                 alt="nft"
-                                src={`/build/images/${id}.png`}
-                            />
+                                src={`${repo}/png/${id}.png`}
+                            /> */}
+                            <div className="top-img skeleton-anim"></div>
                         </div>
                     </div>
                     <div className="right-panel">
@@ -73,9 +75,25 @@ export default function NFT() {
                                     </div>
                                 );
                             })}
+                        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((attribute, i) => {
+                            return (
+                                <div className="attribute" key={i}>
+                                    <div className="skeleton-content">
+                                        <div className="skeleton-title skeleton-anim"></div>
+                                        <div className="skeleton-text skeleton-anim"></div>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
 
-                    Rank: {rank}
+                    <div className="rank-container">
+                        <span>Rank: {rank}</span>
+                        <div
+                            style={{ width: "100%", margin: "0 1rem" }}
+                            className="skeleton-title skeleton-anim"
+                        ></div>
+                    </div>
 
                     {/* TWITTER BUTTON */}
                     <a
