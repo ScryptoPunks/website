@@ -1,0 +1,27 @@
+.trading-container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.trading-container > div {
+    margin: 3rem 0;
+}
+
+/* STATS */
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* INSTRUCTIONS */
+
+.instructions-container > div {
+    margin: 1rem 0;
+}
+
+/* FAQ */
+
+.faq-item {
+    cursor: url("../../assets/pointer.png"), auto;
+}
