@@ -38,11 +38,6 @@ a {
     color: var(--light);
 }
 
-footer {
-    font-size: 1rem;
-    text-align: center;
-}
-
 .primary {
     color: var(--primary);
 }
