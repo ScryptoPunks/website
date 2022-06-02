@@ -41,3 +41,18 @@ a {
 .primary {
     color: var(--primary);
 }
+
+main {
+    min-height: 95vh;
+    display: grid;
+    place-items: center;
+}
+
+.custom-button {
+    margin: .5rem auto 2rem;
+    width: fit-content;
+    padding: 0.25rem .5rem;
+    border: 1px solid var(--light);
+    border-radius: .25rem;
+    cursor: url("./assets/pointer.png"), auto;
+}

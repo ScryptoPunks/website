@@ -162,7 +162,7 @@ export default function App() {
                 // />
             )}
             <div
-                className="load-more-button"
+                className="custom-button"
                 onClick={() => setRange(range + 100)}
             >
                 Load more
