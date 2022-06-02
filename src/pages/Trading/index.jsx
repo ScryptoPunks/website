@@ -37,7 +37,7 @@ export default function Trading() {
                 </div>
 
                 <div className="instructions-container">
-                    <div className="instructions-container">
+                    <div className="instructions-container-wrapper">
                         <h3>Trading instructions</h3>
                         <div className="rules">
                             <p>
@@ -51,16 +51,57 @@ export default function Trading() {
                             </p>
                         </div>
                         <div className="wallet">
-                            <span>ScryptoPunks trading wallet:</span>
+                            <span>ScryptoPunks wallet:</span>{" "}
                             <span>{wallet}</span>
-                            <div
+                            <span
                                 className="custom-button"
                                 onClick={() =>
                                     navigator.clipboard.writeText(wallet)
                                 }
                             >
                                 Copy address
-                            </div>
+                            </span>
+                        </div>
+                        <div className="process">
+                            <ul>
+                                <li>
+                                    Send the XRD or SPUNKS you are trading to
+                                    the address above. NOT each others' wallets!
+                                </li>
+                                <li>
+                                    The message MUST have the following format
+                                    and must not be encrypted:
+                                    <br />
+                                    <code>trading (offer) for (request)</code>
+                                    <br />
+                                    where (offer) is what you are sending in the
+                                    transaction and (request) is what the other
+                                    party is sending in theirs.
+                                </li>
+                                <li>
+                                    If there is no XRD being traded, please send
+                                    an additional transaction with the 10 XRD
+                                    trading fee from either wallet with the
+                                    message "trading fee".
+                                </li>
+                            </ul>
+                            <br />
+                            For example, if you want to trade 80 XRD for Punk
+                            0123 and 4567, you would send 80 XRD to the
+                            ScryptoPunks wallet with this message:
+                            <br />
+                            <code>trading 80 XRD for 0123, 4567</code>
+                            <br />
+                            The other party would have to send 2 SCORP tokens to
+                            the ScryptoPunks wallet with this message:
+                            <br />
+                            <code>trading 0123, 4567 for 80 XRD</code>
+                            <br />
+                            If there is a match there, the trade will be
+                            processed during the day (will
+                            soon be automated). The recipient would receive 70
+                            XRD (80 - 10 trading fee), and you would recieve 2
+                            SPUNKS tokens.
                         </div>
                     </div>
                 </div>

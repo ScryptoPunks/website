@@ -10,8 +10,9 @@ export default function Footer() {
                     href="https://cryptopunks.app/"
                     target="_blank"
                     rel="noreferrer"
-                ></a>{" "}
-                Yuga Labs
+                >
+                    Yuga Labs
+                </a>
             </span>
         </footer>
     );

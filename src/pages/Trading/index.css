@@ -1,10 +1,16 @@
 .trading-container {
     width: 85%;
-    margin: 0 auto;
+    margin: 5rem auto 0;
 }
 
 .trading-container > div {
     margin: 3rem 0;
+    padding: 1rem;
+    border: 1px solid #333;
+}
+
+h3 {
+    padding-bottom: 2rem;
 }
 
 /* STATS */
@@ -16,8 +22,9 @@
 
 /* INSTRUCTIONS */
 
-.instructions-container > div {
+.instructions-container-wrapper > div {
     margin: 1rem 0;
+    /* text-align: center; */
 }
 
 /* FAQ */
