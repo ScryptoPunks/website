@@ -40,7 +40,7 @@ export default function App() {
             .then((json) => {
                 for (let layer of Object.keys(json)) {
                     setLayers((prevState) => [...prevState, layer]);
-                    setOptions((prevState) => [...prevState, json[layer]]);
+                    // setOptions((prevState) => [...prevState, json[layer]]);
                 }
             });
         // fetch(`${repo}/data/metadata.json`)
