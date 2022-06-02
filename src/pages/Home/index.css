@@ -21,13 +21,6 @@ h1 {
     text-align: center;
 }
 
-.learn-more {
-    border: 1px solid var(--light);
-    background: rgba(17, 17, 17, 0.5);
-    margin: 3rem 0;
-    padding: 0.5rem;
-}
-
 /* MAIN CONTAINER */
 
 .main-container {

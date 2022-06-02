@@ -18,11 +18,14 @@ export default function Home() {
         <>
             <div className="landing">
                 <h1 className="typing">{phrase.substring(0, index)}</h1>
-                <div className="learn-more">
+                <div
+                    style={{ backgroundColor: "rgba(17, 17, 17, 0.5)" }}
+                    className="custom-button"
+                >
                     <a href="/collection">Explore</a>
                 </div>
             </div>
-            
+
             {/* <div className="main-container">
                 <div id="about">
                     <div className="about-container">
