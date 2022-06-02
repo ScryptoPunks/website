@@ -7,10 +7,6 @@ export default function Home() {
     const phrase = "Join the revolution.";
     const [index, setIndex] = useState(0);
 
-    const handleFAQClick = (e) => {
-        e.target.parentElement.classList.toggle("active");
-    };
-
     useEffect(() => {
         if (index < phrase.length)
             setTimeout(() => {
@@ -26,7 +22,8 @@ export default function Home() {
                     <a href="/collection">Explore</a>
                 </div>
             </div>
-            <div className="main-container">
+            
+            {/* <div className="main-container">
                 <div id="about">
                     <div className="about-container">
                         <div className="left">
@@ -62,18 +59,16 @@ export default function Home() {
                                 While waiting for the Babylon release, scheduled
                                 by the Radix team for late 2022,{" "}
                                 <i>
-                                    you can reserve NFTs by sending XRD to
-                                    the official ScryptoPunks wallet. In
-                                    exchange, SPUNKS tokens will be sent to
-                                    your wallet.
+                                    you can reserve NFTs by sending XRD to the
+                                    official ScryptoPunks wallet. In exchange,
+                                    SPUNKS tokens will be sent to your wallet.
                                 </i>{" "}
                                 <strong>SOLD OUT</strong>
                                 <br />
                                 <br />
-                                Once Babylon is live, we will deploy
-                                the Smart Contract. You will
-                                then be able to trade your SPUNKS tokens and
-                                mint randomly selected NFTs!
+                                Once Babylon is live, we will deploy the Smart
+                                Contract. You will then be able to trade your
+                                SPUNKS tokens and mint randomly selected NFTs!
                             </div>
                         </div>
                     </div>
@@ -82,7 +77,7 @@ export default function Home() {
                 <div id="roadmap">
                     <div className="left">
                         <h1>ROADMAP</h1>
-                        {/* <h2 className="balance">&nbsp;</h2> */}
+                        <h2 className="balance">&nbsp;</h2>
                         <div className="tier">
                             <span className="milestone">10% </span>- 1000 $XRD
                             giveaway to a lucky holder
@@ -126,19 +121,18 @@ export default function Home() {
                             When mint and what price?
                         </div>
                         <div className="answer">
-                            ScryptoPunks will be available when the Babylon
-                            release hits, but you can reserve them from now on!
-                            The price is 50 XRD per NFT as we wanted to make it
-                            affordable for everyone. Please refer to the
+                            ScryptoPunks were available starting on 01/14, for
+                            50 $XRD, and sold out in less than 48h. Please refer
+                            to the
                             <a href="#mint">Mint</a> section for more
                             information!
                         </div>
                     </div>
                     <div className="faq-item" onClick={handleFAQClick}>
-                        <div className="question">What's the max supply?</div>
+                        <div className="question">What's the supply?</div>
                         <div className="answer">
-                            Like the OG Cryptopunks collection, there will be
-                            10k NFTs and not one more!
+                            10k, so every early Radix supporter get the chance
+                            to own one.
                         </div>
                     </div>
                     <div className="faq-item" onClick={handleFAQClick}>
@@ -146,15 +140,13 @@ export default function Home() {
                         <div className="answer">
                             The team is made of two developers. We have been
                             building projects on other Rust-based blockchains
-                            such as Solana and Elrond for months. Until then, we
-                            were always disappointed by how these handle assets
-                            and transactions, until we discovered Radix. We
-                            immediately felt in love with the ecosystem and
-                            created ScryptoPunks!
+                            such as Solana and Elrond for months. We have always
+                            been disappointed by how assets and transactions
+                            were handled, until we discovered Radix.
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
