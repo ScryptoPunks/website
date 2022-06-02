@@ -51,8 +51,10 @@ export default function Trading() {
                             </p>
                         </div>
                         <div className="wallet">
-                            <span>ScryptoPunks wallet:</span>{" "}
-                            <span>{wallet}</span>
+                            <div>
+                                <span>ScryptoPunks wallet:</span>{" "}
+                                <span style={{wordBreak: "break-word"}} >{wallet}</span>
+                            </div>
                             <span
                                 className="custom-button"
                                 onClick={() =>
@@ -98,10 +100,9 @@ export default function Trading() {
                             <code>trading 0123, 4567 for 80 XRD</code>
                             <br />
                             If there is a match there, the trade will be
-                            processed during the day (will
-                            soon be automated). The recipient would receive 70
-                            XRD (80 - 10 trading fee), and you would recieve 2
-                            SPUNKS tokens.
+                            processed during the day (will soon be automated).
+                            The recipient would receive 70 XRD (80 - 10 trading
+                            fee), and you would recieve 2 SPUNKS tokens.
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,8 @@
 .trading-container > div {
     margin: 3rem 0;
     padding: 1rem;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 h3 {
@@ -27,8 +28,30 @@ h3 {
     /* text-align: center; */
 }
 
+.wallet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    padding: 0 2rem;
+}
+
+code {
+    background-color: #000;
+}
+
 /* FAQ */
 
 .faq-item {
     cursor: url("../../assets/pointer.png"), auto;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 650px) {
+    .wallet {
+        flex-direction: column;
+    }
 }

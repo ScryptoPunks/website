@@ -49,7 +49,7 @@ main {
 }
 
 .custom-button {
-    margin: .5rem auto 2rem;
+    margin: .5rem auto;
     width: fit-content;
     padding: 0.25rem .5rem;
     border: 1px solid var(--light);

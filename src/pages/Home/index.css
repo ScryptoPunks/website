@@ -150,9 +150,3 @@ h1 {
         text-align: center;
     }
 }
-
-@media (max-width: 650px) {
-    nav {
-        display: none;
-    }
-}
