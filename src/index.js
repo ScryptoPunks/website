@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import Home from "./components/Home";
-import Collection from "./components/Collection";
-import NFT from "./components/NFT";
-import Trading from "./components/Trading";
-import ErrorPage from "./components/ErrorPage";
+import Home from "./pages/Home";
+import Collection from "./pages/Collection";
+import NFT from "./pages/NFT";
+import Trading from "./pages/Trading";
+import ErrorPage from "./pages/ErrorPage";
 import "./index.css";
 
 ReactDOM.render(

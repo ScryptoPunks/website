@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Mosaic from "../Mosaic";
+import Mosaic from "../../components/Mosaic";
 import Select from "react-select";
 import { repo } from "../../config";
 import "./index.css";
