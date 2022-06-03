@@ -6,7 +6,9 @@ import "./index.css";
 
 export default function App() {
     // const [data, setData] = useState([]);
-    const [data, setData] = useState(Array.apply(null, Array(100)).map(function () {}));
+    const [data, setData] = useState(
+        Array.apply(null, Array(10000)).map(function () {})
+    );
     const [layers, setLayers] = useState([]);
     const [options, setOptions] = useState([]);
     const [filters, setFilters] = useState([
@@ -118,7 +120,7 @@ export default function App() {
                 </div> */}
             </div>
             {data && (
-                <Mosaic data={data}></Mosaic>
+                <Mosaic data={data.slice(0, range)}></Mosaic>
                 // <Mosaic
                 //     data={data
                 //         .filter((nft) => {

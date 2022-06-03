@@ -94,7 +94,7 @@ export default function Trading() {
                             <br />
                             <code>trading 80 XRD for 0123, 4567</code>
                             <br />
-                            The other party would have to send 2 SCORP tokens to
+                            The other party would have to send 2 SPUNKS tokens to
                             the ScryptoPunks wallet with this message:
                             <br />
                             <code>trading 0123, 4567 for 80 XRD</code>
