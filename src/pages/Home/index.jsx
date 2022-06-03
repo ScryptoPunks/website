@@ -21,16 +21,16 @@ export default function Home() {
                 <h1>
                     <Countdown date={1654462800 * 1000}></Countdown>
                 </h1>
-                <div style={{ color: "var(--primary)", fontSize: "2.2rem", margin: "0 auto 1rem" }}>
+                <div style={{ color: "var(--primary)", fontSize: "3.5rem", margin: "0 auto 1rem" }}>
                     before collection reveal
                 </div>
                 {/* <h1 className="typing">{phrase.substring(0, index)}</h1> */}
-                <div
+                {/* <div
                     style={{ backgroundColor: "rgba(17, 17, 17, 0.5)" }}
                     className="custom-button"
                 >
                     <a href="/collection">Explore</a>
-                </div>
+                </div> */}
             </div>
 
             {/* <div className="main-container">
