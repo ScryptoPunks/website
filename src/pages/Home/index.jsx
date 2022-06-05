@@ -1,36 +1,31 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Countdown from "react-countdown";
 import "./index.css";
 import gif from "./../../assets/mint.gif";
 import gallery from "./../../assets/gallery.png";
 
 export default function Home() {
-    // const phrase = "Join the revolution.";
-    // const [index, setIndex] = useState(0);
+    const phrase = "Join the revolution.";
+    const [index, setIndex] = useState(0);
 
-    // useEffect(() => {
-    //     if (index < phrase.length)
-    //         setTimeout(() => {
-    //             setIndex((i) => i + 1);
-    //         }, 100);
-    // }, [index]);
+    useEffect(() => {
+        if (index < phrase.length)
+            setTimeout(() => {
+                setIndex((i) => i + 1);
+            }, 100);
+    }, [index]);
 
     return (
         <>
             <div className="landing">
-                <h1>
-                    <Countdown date={1654462800 * 1000}></Countdown>
-                </h1>
-                <div style={{ color: "var(--primary)", fontSize: "3.5rem", margin: "0 auto 1rem" }}>
-                    before collection reveal
-                </div>
-                {/* <h1 className="typing">{phrase.substring(0, index)}</h1> */}
-                {/* <div
+                <h1 className="typing">{phrase.substring(0, index)}</h1>
+                <div
                     style={{ backgroundColor: "rgba(17, 17, 17, 0.5)" }}
                     className="custom-button"
                 >
-                    <a href="/collection">Explore</a>
-                </div> */}
+                    <Link to="collection">Explore</Link>
+                </div>
             </div>
 
             {/* <div className="main-container">

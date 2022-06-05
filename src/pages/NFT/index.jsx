@@ -19,15 +19,15 @@ export default function NFT() {
                 .then((res) => res.json())
                 .then((json) => setOwner(json[id.padStart(4, "0")]));
 
-            //     fetch(`${repo}/json/${id}.json`)
-            //         .then((res) => res.json())
-            //         .then((json) => setAttributes(json["attributes"]));
-            //     fetch(`${repo}/data/rarity.json`)
-            //         .then((res) => res.json())
-            //         .then((json) => setRarity(json));
-            //     fetch(`${repo}/data/ranks.json`)
-            //         .then((res) => res.json())
-            //         .then((json) => setRank(json[id]));
+            fetch(`${repo}/json/${id}.json`)
+                .then((res) => res.json())
+                .then((json) => setAttributes(json["attributes"]));
+            fetch(`${repo}/data/rarity.json`)
+                .then((res) => res.json())
+                .then((json) => setRarity(json));
+            fetch(`${repo}/data/ranks.json`)
+                .then((res) => res.json())
+                .then((json) => setRank(json[id]));
         }
     }, [id]);
 
@@ -38,12 +38,11 @@ export default function NFT() {
                     <div className="left-panel">
                         <div className="nft-tag">#{id}</div>
                         <div className="image-container">
-                            {/* <img
+                            <img
                                 className="nft-img"
                                 alt="nft"
-                                src={`${repo}/png/${id}.png`}
-                            /> */}
-                            <div className="top-img skeleton-anim"></div>
+                                src={`${repo}/images/${id}.png`}
+                            />
                         </div>
                     </div>
                     <div className="right-panel">
@@ -80,23 +79,15 @@ export default function NFT() {
                                     </div>
                                 );
                             })}
-                        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((attribute, i) => {
-                            return (
-                                <div className="attribute" key={i}>
-                                    <div className="skeleton-content">
-                                        <div className="skeleton-title skeleton-anim"></div>
-                                        <div className="skeleton-text skeleton-anim"></div>
-                                    </div>
-                                </div>
-                            );
-                        })}
                     </div>
 
                     <div className="info-container">
                         <div className="owner">Owner: {owner}</div>
                         <div className="rank">
                             <span>Rank: {rank}</span>
-                            <div className="skeleton-title skeleton-anim"></div>
+                            {!rank && (
+                                <div className="skeleton-title skeleton-anim"></div>
+                            )}
                         </div>
                     </div>
 
