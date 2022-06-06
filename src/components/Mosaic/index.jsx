@@ -13,9 +13,9 @@ export default function Mosaic({ data }) {
 
     return (
         <div className="mosaic-container-wrapper">
-            <div className="range">
+            {/* <div className="range">
                 #{data[0]?.edition} - #{data[data.length - 1]?.edition}
-            </div>
+            </div> */}
             <div className="mosaic-container">
                 {data.map((nft, i) => (
                     <Link to={`/nfts/${nft.edition}`} key={i + 1}>

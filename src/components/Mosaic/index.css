@@ -11,8 +11,6 @@
 .thumbnail img {
     width: 100%;
     vertical-align: middle;
-    filter: brightness(75%);
-    border-radius: 0.5rem;
 }
 
 .thumbnail img:hover {
