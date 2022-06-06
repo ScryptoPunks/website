@@ -18,15 +18,15 @@ export default function Mosaic({ data }) {
             </div>
             <div className="mosaic-container">
                 {data.map((nft, i) => (
-                    <Link to={`/nfts/${i + 1}`} key={i + 1}>
+                    <Link to={`/nfts/${nft.edition}`} key={i + 1}>
                         <div className="thumbnail">
                             <img
                                 alt="nft"
-                                src={`${repo}/images/${i + 1}.png`}
+                                src={`${repo}/images/${nft.edition}.png`}
                                 onMouseOver={handleMouseOver}
                                 onMouseLeave={handleMouseLeave}
                             ></img>
-                            <div className="tag">SPUNKS #{i + 1}</div>
+                            <div className="tag">SPUNKS #{nft.edition}</div>
                         </div>
                     </Link>
                 ))}

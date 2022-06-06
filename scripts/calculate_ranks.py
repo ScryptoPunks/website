@@ -1,7 +1,7 @@
 import json
 
 metadatas = json.load(open("./../public/json/_metadata.json"))
-occurences = json.load(open("./../public/json/_rarity.json"))
+occurences = json.load(open("./../public/json/rarity.json"))
 rarity = []
 ranks = {}
 

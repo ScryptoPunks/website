@@ -1,6 +1,6 @@
 import json
 
-f = open("./../public/json/_reset.json")
+f = open("./../public/json/rarity.json")
 data = json.load(f)
 
 options = {}

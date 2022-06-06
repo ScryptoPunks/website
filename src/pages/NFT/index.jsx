@@ -22,10 +22,10 @@ export default function NFT() {
             fetch(`${repo}/json/${id}.json`)
                 .then((res) => res.json())
                 .then((json) => setAttributes(json["attributes"]));
-            fetch(`${repo}/data/rarity.json`)
+            fetch(`${repo}/rarity.json`)
                 .then((res) => res.json())
                 .then((json) => setRarity(json));
-            fetch(`${repo}/data/ranks.json`)
+            fetch(`${repo}/ranks.json`)
                 .then((res) => res.json())
                 .then((json) => setRank(json[id]));
         }
@@ -79,6 +79,17 @@ export default function NFT() {
                                     </div>
                                 );
                             })}
+
+                        {!attributes && [0, 1, 2, 3, 4, 5, 6].map((attribute, i) => {
+                            return (
+                                <div className="attribute" key={i}>
+                                    <div className="skeleton-content">
+                                        <div className="skeleton-title skeleton-anim"></div>
+                                        <div className="skeleton-text skeleton-anim"></div>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
 
                     <div className="info-container">
