@@ -32,7 +32,7 @@ export default function App() {
     };
 
     useEffect(() => {
-        fetch("./json/_options.json")
+        fetch(`${repo}/_options.json`)
             .then((res) => res.json())
             .then((json) => {
                 for (let layer of Object.keys(json)) {
