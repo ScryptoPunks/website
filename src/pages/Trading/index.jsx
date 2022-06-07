@@ -5,11 +5,7 @@ import "./index.css";
 export default function Trading() {
     const [volume, setVolume] = useState(0);
     const [trades, setTrades] = useState(0);
-
-    const handleFAQClick = (e) => {
-        console.log(e.currentTarget);
-        e.target.parentElement.classList.toggle("active");
-    };
+    const [ath, setAth] = useState(0);
 
     useEffect(() => {
         const fetchStats = async () => {
@@ -18,6 +14,7 @@ export default function Trading() {
                 .then((json) => {
                     setVolume(json["volume"]);
                     setTrades(json["trades"]);
+                    setAth(json["ath"])
                 });
         };
         fetchStats();
@@ -31,8 +28,16 @@ export default function Trading() {
                 <div className="stats-container-wrapper">
                     <h3>Trading stats</h3>
                     <div className="stats-container">
-                        <div className="txs-stats">{trades} trades</div>
-                        <div className="volume-stats">{volume} XRD volume</div>
+                        <div className="txs-stats">Transactions: {trades}</div>
+                        <div className="price-stats">
+                            <div className="ath-stats">
+                                ATH: {ath} XRD 
+                            </div>
+                            <div className="avg-stats">
+                                Average price: {volume / trades} XRD
+                            </div>
+                        </div>
+                        <div className="volume-stats">Volume: {volume} XRD</div>
                     </div>
                 </div>
 
@@ -53,7 +58,9 @@ export default function Trading() {
                         <div className="wallet">
                             <div>
                                 <span>ScryptoPunks wallet:</span>{" "}
-                                <span style={{wordBreak: "break-word"}} >{wallet}</span>
+                                <span style={{ wordBreak: "break-word" }}>
+                                    {wallet}
+                                </span>
                             </div>
                             <span
                                 className="custom-button"
@@ -94,8 +101,8 @@ export default function Trading() {
                             <br />
                             <code>trading 80 XRD for 0123, 4567</code>
                             <br />
-                            The other party would have to send 2 SPUNKS tokens to
-                            the ScryptoPunks wallet with this message:
+                            The other party would have to send 2 SPUNKS tokens
+                            to the ScryptoPunks wallet with this message:
                             <br />
                             <code>trading 0123, 4567 for 80 XRD</code>
                             <br />
@@ -104,13 +111,29 @@ export default function Trading() {
                             The recipient would receive 70 XRD (80 - 10 trading
                             fee), and you would recieve 2 SPUNKS tokens.
                         </div>
+                        <h4>
+                            <a
+                                href={`${api}/database.json`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Click here to check the database
+                            </a>
+                        </h4>
                     </div>
                 </div>
 
                 <div className="faq-container">
                     <div className="faq-container-wrapper">
                         <h3>Trading FAQ</h3>
-                        <div className="faq-item" onClick={handleFAQClick}>
+                        <div
+                            className="faq-item"
+                            onClick={(e) =>
+                                e.target.parentElement.classList.toggle(
+                                    "active"
+                                )
+                            }
+                        >
                             <div className="question">
                                 How long should my trade take?
                             </div>
@@ -121,7 +144,14 @@ export default function Trading() {
                                 with your message.
                             </div>
                         </div>
-                        <div className="faq-item" onClick={handleFAQClick}>
+                        <div
+                            className="faq-item"
+                            onClick={(e) =>
+                                e.target.parentElement.classList.toggle(
+                                    "active"
+                                )
+                            }
+                        >
                             <div className="question">
                                 I did something wrong and don't know what to
                                 do...
@@ -131,7 +161,14 @@ export default function Trading() {
                                 to help you.
                             </div>
                         </div>
-                        <div className="faq-item" onClick={handleFAQClick}>
+                        <div
+                            className="faq-item"
+                            onClick={(e) =>
+                                e.target.parentElement.classList.toggle(
+                                    "active"
+                                )
+                            }
+                        >
                             <div className="question">
                                 What is the 10% fee for?
                             </div>

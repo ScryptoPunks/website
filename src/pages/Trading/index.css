@@ -21,6 +21,12 @@ h3 {
     justify-content: space-around;
 }
 
+.price-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* INSTRUCTIONS */
 
 .instructions-container-wrapper > div {
