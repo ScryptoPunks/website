@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Mosaic from "../../components/Mosaic";
 import Select from "react-select";
 import { api, repo } from "../../config";
 import "./index.css";
 
 export default function App() {
-    const [data, setData] = useState([]);
-    const [layers, setLayers] = useState([]);
     const [options, setOptions] = useState([]);
-    const [filters, setFilters] = useState([[], [], [], [], [], [], []]);
-    const [range, setRange] = useState(100);
-    const [wallet, setWallet] = useState();
-    const [sort, setSort] = useState("Ascending");
+    const [layers, setLayers] = useState([]);
+
+    const [metadata, setMetadata] = useState([]);
     const [database, setDatabase] = useState();
+    const [filters, setFilters] = useState([[], [], [], [], [], [], []]);
+    const [wallet, setWallet] = useState();
     const [ranks, setRanks] = useState();
+    const [filtered, setFiltered] = useState([]);
+    const inputWallet = useRef();
 
     const handleChange = (selected, index) => {
+        console.log("Handle change");
         let copy = [...filters];
         copy[index] = selected.map((elt) => {
             return elt["value"];
@@ -23,23 +25,52 @@ export default function App() {
         setFilters(copy);
     };
 
-    const checkValid = (arr, val) => {
-        return arr.includes(val) || arr.length === 0;
+    const lookupWallet = () => {
+        const address = inputWallet.current.value;
+        if (address) {
+            const x = Object.keys(database)
+                .filter((key) => database[key] === address)
+                .map((key) => parseInt(key));
+            setWallet(x);
+        } else setWallet(undefined);
     };
 
-    const sortNFTs = (data) => {
+    const checkValid = (nft) => {
+        // console.count("Check valid");
+        if (wallet && !wallet.includes(nft.edition)) {
+            return false;
+        }
+        let isValid = true;
+        for (let i = 0; i < filters.length; i++) {
+            if (
+                filters[i].length > 0 &&
+                !filters[i].includes(nft.attributes[i].value)
+            ) {
+                isValid = false;
+                break;
+            }
+        }
+        return isValid;
+    };
+
+    const sortNFTs = (sort) => {
+        console.count("Sort");
         if (sort === "Random") {
-            return data
-                .map((value) => ({ value, sort: Math.random() }))
-                .sort((a, b) => a.sort - b.sort)
-                .map(({ value }) => value);
+            setFiltered(
+                filtered
+                    .map((value) => ({ value, sort: Math.random() }))
+                    .sort((a, b) => a.sort - b.sort)
+                    .map(({ value }) => value)
+            );
         } else if (sort === "Rank") {
-            return Object.entries(ranks)
-                .sort(([, a], [, b]) => a - b)
-                .map((entry) => {
-                    return { edition: parseInt(entry[0]) };
-                });
-        } else return data;
+            let cpy = [...filtered];
+            cpy.sort((a, b) => ranks[a.edition] - ranks[b.edition]);
+            setFiltered(cpy);
+        } else {
+            let cpy = [...filtered];
+            cpy.sort((a, b) => a.edition - b.edition);
+            setFiltered(cpy);
+        }
     };
 
     useEffect(() => {
@@ -53,7 +84,10 @@ export default function App() {
             });
         fetch(`${repo}/_metadata.json`)
             .then((res) => res.json())
-            .then((json) => setData(json));
+            .then((json) => {
+                setMetadata(json);
+                setFiltered(json.filter((nft) => checkValid(nft)));
+            });
         fetch(`${api}/database.json`)
             .then((res) => res.json())
             .then((json) => setDatabase(json));
@@ -61,6 +95,10 @@ export default function App() {
             .then((res) => res.json())
             .then((json) => setRanks(json));
     }, []);
+
+    useEffect(() => {
+        setFiltered(metadata.filter((nft) => checkValid(nft)));
+    }, [filters, wallet]);
 
     return (
         <div className="collection-container">
@@ -88,120 +126,26 @@ export default function App() {
                         </div>
                     ))}
                 </div>
-                <div className="count">
-                    {wallet
-                        ? Object.entries(database).filter(
-                              ([key, value]) => value === wallet
-                          ).length
-                        : data.filter((nft) => {
-                              return (
-                                  checkValid(
-                                      filters[0],
-                                      nft.attributes[0].value
-                                  ) &&
-                                  checkValid(
-                                      filters[1],
-                                      nft.attributes[1].value
-                                  ) &&
-                                  checkValid(
-                                      filters[2],
-                                      nft.attributes[2].value
-                                  ) &&
-                                  checkValid(
-                                      filters[3],
-                                      nft.attributes[3].value
-                                  ) &&
-                                  checkValid(
-                                      filters[4],
-                                      nft.attributes[4].value
-                                  ) &&
-                                  checkValid(
-                                      filters[5],
-                                      nft.attributes[5].value
-                                  ) &&
-                                  checkValid(
-                                      filters[6],
-                                      nft.attributes[6].value
-                                  )
-                              );
-                          }).length}{" "}
-                    NFTs found
-                </div>
                 <div className="search-container">
                     Search by wallet:
                     <input
                         type="text"
                         placeholder="Enter your address"
-                        onChange={(e) => setWallet(e.currentTarget.value)}
+                        ref={inputWallet}
                     />
+                    <button onClick={lookupWallet}>Confirm</button>
                 </div>
                 <div className="sort-container">
                     Sort by:
-                    <select onChange={(e) => setSort(e.currentTarget.value)}>
+                    <select onChange={(e) => sortNFTs(e.currentTarget.value)}>
                         <option value="Ascending">Ascending</option>
                         <option value="Rank">Rank</option>
                         <option value="Random">Random</option>
                     </select>
                 </div>
             </div>
-            {data && (
-                <Mosaic
-                    data={
-                        wallet
-                            ? sortNFTs(
-                                  Object.entries(database)
-                                      .filter(
-                                          ([key, value]) => value === wallet
-                                      )
-                                      .map((entry) => {
-                                          return {
-                                              edition: parseInt(entry[0]),
-                                          };
-                                      })
-                              ).slice(0, range)
-                            : sortNFTs(
-                                  data.filter((nft) => {
-                                      return (
-                                          checkValid(
-                                              filters[0],
-                                              nft.attributes[0].value
-                                          ) &&
-                                          checkValid(
-                                              filters[1],
-                                              nft.attributes[1].value
-                                          ) &&
-                                          checkValid(
-                                              filters[2],
-                                              nft.attributes[2].value
-                                          ) &&
-                                          checkValid(
-                                              filters[3],
-                                              nft.attributes[3].value
-                                          ) &&
-                                          checkValid(
-                                              filters[4],
-                                              nft.attributes[4].value
-                                          ) &&
-                                          checkValid(
-                                              filters[5],
-                                              nft.attributes[5].value
-                                          ) &&
-                                          checkValid(
-                                              filters[6],
-                                              nft.attributes[6].value
-                                          )
-                                      );
-                                  })
-                              ).slice(0, range)
-                    }
-                />
-            )}
-            <div
-                className="custom-button"
-                onClick={() => setRange(range + 100)}
-            >
-                Load more
-            </div>
+
+            <Mosaic data={filtered} />
         </div>
     );
 }

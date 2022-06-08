@@ -53,13 +53,16 @@ export default function NFT() {
                                 const trait = attribute["value"];
                                 const occurence = rarity[layer][trait];
 
+                                // const nbLayersInCategory = Object.keys(rarity[layer]).length;
+                                // const reference = 10000 / nbLayersInCategory / occurence;
+
                                 let category;
                                 if (occurence < 100) category = "mythic";
-                                else if (occurence < 500)
+                                else if (occurence < 250)
                                     category = "legendary";
-                                else if (occurence < 1000) category = "epic";
-                                else if (occurence < 2500) category = "rare";
-                                else if (occurence < 5000)
+                                else if (occurence < 500) category = "epic";
+                                else if (occurence < 1000) category = "rare";
+                                else if (occurence < 2000)
                                     category = "uncommon";
                                 else category = "common";
 
@@ -73,23 +76,25 @@ export default function NFT() {
                                             <span
                                                 className={`rarity ${category}`}
                                             >
-                                                {category} ({occurence / 100}%)
+                                                {category} (
+                                                {(occurence / 100).toFixed(1)}%)
                                             </span>
                                         </div>
                                     </div>
                                 );
                             })}
 
-                        {!attributes && [0, 1, 2, 3, 4, 5, 6].map((attribute, i) => {
-                            return (
-                                <div className="attribute" key={i}>
-                                    <div className="skeleton-content">
-                                        <div className="skeleton-title skeleton-anim"></div>
-                                        <div className="skeleton-text skeleton-anim"></div>
+                        {!attributes &&
+                            [0, 1, 2, 3, 4, 5, 6].map((attribute, i) => {
+                                return (
+                                    <div className="attribute" key={i}>
+                                        <div className="skeleton-content">
+                                            <div className="skeleton-title skeleton-anim"></div>
+                                            <div className="skeleton-text skeleton-anim"></div>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
                     </div>
 
                     <div className="info-container">
