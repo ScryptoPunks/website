@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { repo } from "../../config";
 import "./index.css";
 
 export default function Mosaic({ data }) {

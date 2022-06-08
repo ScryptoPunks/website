@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Mosaic from "../../components/Mosaic";
 import Select from "react-select";
 import { api } from "../../config";
@@ -14,7 +14,6 @@ export default function App() {
     const [wallet, setWallet] = useState();
     const [ranks, setRanks] = useState();
     const [filtered, setFiltered] = useState([]);
-    const inputWallet = useRef();
 
     const handleChange = (selected, index) => {
         console.log("Handle change");
@@ -23,16 +22,6 @@ export default function App() {
             return elt["value"];
         });
         setFilters(copy);
-    };
-
-    const lookupWallet = () => {
-        const address = inputWallet.current.value;
-        if (address) {
-            const x = Object.keys(database)
-                .filter((key) => database[key] === address)
-                .map((key) => parseInt(key));
-            setWallet(x);
-        } else setWallet(undefined);
     };
 
     const checkValid = (nft) => {
@@ -131,9 +120,16 @@ export default function App() {
                     <input
                         type="text"
                         placeholder="Enter your address"
-                        ref={inputWallet}
+                        onChange={(e) => {
+                            const address = e.currentTarget.value;
+                            if (address) {
+                                const x = Object.keys(database)
+                                    .filter((key) => database[key] === address)
+                                    .map((key) => parseInt(key));
+                                setWallet(x);
+                            } else setWallet(undefined);
+                        }}
                     />
-                    <button onClick={lookupWallet}>Confirm</button>
                 </div>
                 <div className="sort-container">
                     Sort by:
