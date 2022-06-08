@@ -34,7 +34,7 @@ export default function Trading() {
                                 ATH: {ath} XRD 
                             </div>
                             <div className="avg-stats">
-                                Average price: {volume / trades} XRD
+                                Average price: {Math.round(volume / trades)} XRD
                             </div>
                         </div>
                         <div className="volume-stats">Volume: {volume} XRD</div>
