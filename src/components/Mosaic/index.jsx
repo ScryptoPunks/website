@@ -27,7 +27,7 @@ export default function Mosaic({ data }) {
                         <div className="thumbnail">
                             <img
                                 alt="nft"
-                                src={`${repo}/images/${nft.edition}.png`}
+                                src={`/images/${nft.edition}.png`}
                                 onMouseOver={handleMouseOver}
                                 onMouseLeave={handleMouseLeave}
                             ></img>

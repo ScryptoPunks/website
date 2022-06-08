@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Mosaic from "../../components/Mosaic";
 import Select from "react-select";
-import { api, repo } from "../../config";
+import { api } from "../../config";
 import "./index.css";
 
 export default function App() {
@@ -74,7 +74,7 @@ export default function App() {
     };
 
     useEffect(() => {
-        fetch(`${repo}/_options.json`)
+        fetch(`/json/_options.json`)
             .then((res) => res.json())
             .then((json) => {
                 for (let layer of Object.keys(json)) {
@@ -82,18 +82,18 @@ export default function App() {
                     setOptions((prevState) => [...prevState, json[layer]]);
                 }
             });
-        fetch(`${repo}/_metadata.json`)
+        fetch(`/json/_metadata.json`)
             .then((res) => res.json())
             .then((json) => {
                 setMetadata(json);
                 setFiltered(json.filter((nft) => checkValid(nft)));
             });
+        fetch(`/json/_ranks.json`)
+            .then((res) => res.json())
+            .then((json) => setRanks(json));
         fetch(`${api}/database.json`)
             .then((res) => res.json())
             .then((json) => setDatabase(json));
-        fetch(`${repo}/ranks.json`)
-            .then((res) => res.json())
-            .then((json) => setRanks(json));
     }, []);
 
     useEffect(() => {

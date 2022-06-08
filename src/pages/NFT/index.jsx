@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ErrorPage from "../ErrorPage";
 import { useParams } from "react-router-dom";
-import { repo } from "../../config";
+import { api } from "../../config";
 import "./index.css";
 
 export default function NFT() {
@@ -15,17 +15,16 @@ export default function NFT() {
     useEffect(() => {
         if (id < 1 || id > 10000) setValid(false);
         else {
-            fetch("/json/database.json")
+            fetch(`${api}/database.json`)
                 .then((res) => res.json())
                 .then((json) => setOwner(json[id.padStart(4, "0")]));
-
-            fetch(`${repo}/json/${id}.json`)
+            fetch(`/json/${id}.json`)
                 .then((res) => res.json())
                 .then((json) => setAttributes(json["attributes"]));
-            fetch(`${repo}/rarity.json`)
+            fetch("/json/_rarity.json")
                 .then((res) => res.json())
                 .then((json) => setRarity(json));
-            fetch(`${repo}/ranks.json`)
+            fetch("/json/_ranks.json")
                 .then((res) => res.json())
                 .then((json) => setRank(json[id]));
         }
@@ -41,7 +40,7 @@ export default function NFT() {
                             <img
                                 className="nft-img"
                                 alt="nft"
-                                src={`${repo}/images/${id}.png`}
+                                src={`/images/${id}.png`}
                             />
                         </div>
                     </div>

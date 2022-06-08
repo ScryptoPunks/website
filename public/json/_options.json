@@ -1,0 +1,400 @@
+{
+    "Background": [
+        {
+            "value": "Blue",
+            "label": "Blue"
+        },
+        {
+            "value": "Burnt sienna",
+            "label": "Burnt sienna"
+        },
+        {
+            "value": "Grey",
+            "label": "Grey"
+        },
+        {
+            "value": "Purple",
+            "label": "Purple"
+        },
+        {
+            "value": "Radix",
+            "label": "Radix"
+        },
+        {
+            "value": "Red",
+            "label": "Red"
+        },
+        {
+            "value": "Sand",
+            "label": "Sand"
+        },
+        {
+            "value": "White",
+            "label": "White"
+        }
+    ],
+    "Character": [
+        {
+            "value": "Afroamerican man",
+            "label": "Afroamerican man"
+        },
+        {
+            "value": "Afroamerican woman",
+            "label": "Afroamerican woman"
+        },
+        {
+            "value": "Alien",
+            "label": "Alien"
+        },
+        {
+            "value": "Ape",
+            "label": "Ape"
+        },
+        {
+            "value": "Asian man",
+            "label": "Asian man"
+        },
+        {
+            "value": "Asian woman",
+            "label": "Asian woman"
+        },
+        {
+            "value": "European man",
+            "label": "European man"
+        },
+        {
+            "value": "European woman",
+            "label": "European woman"
+        },
+        {
+            "value": "Zombie",
+            "label": "Zombie"
+        }
+    ],
+    "Mouth accessories": [
+        {
+            "value": "Armor",
+            "label": "Armor"
+        },
+        {
+            "value": "Big beard",
+            "label": "Big beard"
+        },
+        {
+            "value": "Clown nose",
+            "label": "Clown nose"
+        },
+        {
+            "value": "Face mask",
+            "label": "Face mask"
+        },
+        {
+            "value": "Goatee",
+            "label": "Goatee"
+        },
+        {
+            "value": "Grey beard",
+            "label": "Grey beard"
+        },
+        {
+            "value": "Massive beard",
+            "label": "Massive beard"
+        },
+        {
+            "value": "Mustache",
+            "label": "Mustache"
+        },
+        {
+            "value": "Nothing",
+            "label": "Nothing"
+        },
+        {
+            "value": "Pink lipstick",
+            "label": "Pink lipstick"
+        },
+        {
+            "value": "Purple lipstick",
+            "label": "Purple lipstick"
+        },
+        {
+            "value": "Red lipstick",
+            "label": "Red lipstick"
+        },
+        {
+            "value": "Sideburn",
+            "label": "Sideburn"
+        }
+    ],
+    "Ears": [
+        {
+            "value": "Airpods",
+            "label": "Airpods"
+        },
+        {
+            "value": "Diamond",
+            "label": "Diamond"
+        },
+        {
+            "value": "Gold",
+            "label": "Gold"
+        },
+        {
+            "value": "Nothing",
+            "label": "Nothing"
+        },
+        {
+            "value": "Silver",
+            "label": "Silver"
+        }
+    ],
+    "Headgear": [
+        {
+            "value": "Backward cap",
+            "label": "Backward cap"
+        },
+        {
+            "value": "Bald",
+            "label": "Bald"
+        },
+        {
+            "value": "Beanie",
+            "label": "Beanie"
+        },
+        {
+            "value": "Blond ponytail",
+            "label": "Blond ponytail"
+        },
+        {
+            "value": "Blue headband",
+            "label": "Blue headband"
+        },
+        {
+            "value": "Blue headset",
+            "label": "Blue headset"
+        },
+        {
+            "value": "Charlie hat",
+            "label": "Charlie hat"
+        },
+        {
+            "value": "Cyberpunk haircut",
+            "label": "Cyberpunk haircut"
+        },
+        {
+            "value": "Dead cap",
+            "label": "Dead cap"
+        },
+        {
+            "value": "Emo",
+            "label": "Emo"
+        },
+        {
+            "value": "Frog",
+            "label": "Frog"
+        },
+        {
+            "value": "Gold laurel wealth",
+            "label": "Gold laurel wealth"
+        },
+        {
+            "value": "Green beret",
+            "label": "Green beret"
+        },
+        {
+            "value": "Haircut",
+            "label": "Haircut"
+        },
+        {
+            "value": "Haircut2",
+            "label": "Haircut2"
+        },
+        {
+            "value": "Headscarf",
+            "label": "Headscarf"
+        },
+        {
+            "value": "Laurel wealth",
+            "label": "Laurel wealth"
+        },
+        {
+            "value": "Lemon headset",
+            "label": "Lemon headset"
+        },
+        {
+            "value": "Locks",
+            "label": "Locks"
+        },
+        {
+            "value": "Long purple hair",
+            "label": "Long purple hair"
+        },
+        {
+            "value": "McDonalds cap",
+            "label": "McDonalds cap"
+        },
+        {
+            "value": "Military hat",
+            "label": "Military hat"
+        },
+        {
+            "value": "Pearl earring girl",
+            "label": "Pearl earring girl"
+        },
+        {
+            "value": "Pikachu",
+            "label": "Pikachu"
+        },
+        {
+            "value": "Pilot helmet",
+            "label": "Pilot helmet"
+        },
+        {
+            "value": "Pink bow",
+            "label": "Pink bow"
+        },
+        {
+            "value": "Pink haircut with hat",
+            "label": "Pink haircut with hat"
+        },
+        {
+            "value": "Pony tail",
+            "label": "Pony tail"
+        },
+        {
+            "value": "Purple bow",
+            "label": "Purple bow"
+        },
+        {
+            "value": "Purple spike",
+            "label": "Purple spike"
+        },
+        {
+            "value": "Radix cap",
+            "label": "Radix cap"
+        },
+        {
+            "value": "Red headset",
+            "label": "Red headset"
+        },
+        {
+            "value": "Rose",
+            "label": "Rose"
+        },
+        {
+            "value": "Safari hat",
+            "label": "Safari hat"
+        },
+        {
+            "value": "Scientist",
+            "label": "Scientist"
+        },
+        {
+            "value": "Stringy hair",
+            "label": "Stringy hair"
+        },
+        {
+            "value": "Tomahawk",
+            "label": "Tomahawk"
+        },
+        {
+            "value": "White haircut",
+            "label": "White haircut"
+        },
+        {
+            "value": "Yellow headband",
+            "label": "Yellow headband"
+        }
+    ],
+    "Eyes": [
+        {
+            "value": "3D glasses",
+            "label": "3D glasses"
+        },
+        {
+            "value": "Alien",
+            "label": "Alien"
+        },
+        {
+            "value": "Blue glasses",
+            "label": "Blue glasses"
+        },
+        {
+            "value": "Blue visor",
+            "label": "Blue visor"
+        },
+        {
+            "value": "Heterochromia",
+            "label": "Heterochromia"
+        },
+        {
+            "value": "Laser",
+            "label": "Laser"
+        },
+        {
+            "value": "Modern glasses",
+            "label": "Modern glasses"
+        },
+        {
+            "value": "Ninja",
+            "label": "Ninja"
+        },
+        {
+            "value": "Oculus",
+            "label": "Oculus"
+        },
+        {
+            "value": "Pink visor",
+            "label": "Pink visor"
+        },
+        {
+            "value": "Pirate",
+            "label": "Pirate"
+        },
+        {
+            "value": "Purple visor",
+            "label": "Purple visor"
+        },
+        {
+            "value": "Radix glasses",
+            "label": "Radix glasses"
+        },
+        {
+            "value": "Radix glasses2",
+            "label": "Radix glasses2"
+        },
+        {
+            "value": "Regular",
+            "label": "Regular"
+        },
+        {
+            "value": "Zombie",
+            "label": "Zombie"
+        }
+    ],
+    "Accessories": [
+        {
+            "value": "Cigarette",
+            "label": "Cigarette"
+        },
+        {
+            "value": "Electronic cigarette",
+            "label": "Electronic cigarette"
+        },
+        {
+            "value": "Gold chain",
+            "label": "Gold chain"
+        },
+        {
+            "value": "Pipe",
+            "label": "Pipe"
+        },
+        {
+            "value": "Weed",
+            "label": "Weed"
+        },
+        {
+            "value": "Nothing",
+            "label": "Nothing"
+        }
+    ]
+}
