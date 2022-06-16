@@ -6,10 +6,17 @@ header {
     border-bottom: 1px solid var(--darker);
     background: var(--tp-dark);
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
+
+    z-index: 999;
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -17,12 +24,6 @@ header {
     color: var(--primary);
     font-size: 1.8rem;
     padding: 0;
-}
-
-header div {
-    width: 20%;
-    display: grid;
-    place-items: center;
 }
 
 header a {
@@ -35,6 +36,10 @@ header a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.MuiButton-root {
+    text-transform: capitalize !important;
 }
 
 /* MEDIA QUERIES */

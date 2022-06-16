@@ -1,7 +1,12 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
 import "./index.css";
 
 export default function Header() {
+    const [wallet, setWallet] = useState();
+    const [id, setId] = useState();
+
     return (
         <header>
             <div>
@@ -10,8 +15,29 @@ export default function Header() {
                 </Link>
             </div>
             <nav>
-                <Link to="/collection">GALLERY</Link>
-                <Link to="/trading">TRADING</Link>
+                <Link to="/collection">Browse collection</Link>
+                <Link to="/trading">Trading</Link>
+
+                <TextField
+                    placeholder="rdx1qsplnjvq705ke09pemep336f4lgd7mdej9ze4lqqpv49mpfaaagyajqgt84zr"
+                    variant="outlined"
+                    size="small"
+                    style={{ width: "10ch" }}
+                    onChange={(e) => setWallet(e.currentTarget.value)}
+                ></TextField>
+                <Link to={`/wallet/${wallet}`}>
+                    <Button variant="contained">Wallet</Button>
+                </Link>
+                <TextField
+                    placeholder="0123"
+                    variant="outlined"
+                    size="small"
+                    style={{ width: "6ch" }}
+                    onChange={(e) => setId(e.currentTarget.value)}
+                ></TextField>
+                <Link to={`/nfts/${id}`}>
+                    <Button variant="contained">Lookup</Button>
+                </Link>
             </nav>
             <div className="socials">
                 <a
