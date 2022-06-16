@@ -1,0 +1,53 @@
+.audio-player {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 3.5rem;
+    position: sticky;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: var(--tp-dark);
+    border-radius: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+}
+
+/* IMAGE */
+
+.audio-player img {
+    height: 5rem;
+    transform: translateY(-0.75rem);
+}
+
+/* LOTTIE */
+
+.lottie-container {
+    padding: 0 0.5rem;
+}
+
+/* SONG INFO */
+
+.song-artist, .song-title {
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.song-artist {
+    font-size: 0.7rem;
+}
+
+/* CONTROLS */
+
+.controls svg {
+    width: 20px;
+    height: 20px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.controls svg:hover {
+    transform: scale(110%);
+    filter: brightness(110%);
+}
