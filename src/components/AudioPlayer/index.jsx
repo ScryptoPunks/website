@@ -29,7 +29,6 @@ export default function AudioPlayer() {
         setPaused(false);
         if (songIndex === 0) setSongIndex(songs.length - 1);
         else setSongIndex(songIndex - 1);
-        console.log(player.current);
         player.current.load();
         player.current.play();
     };
@@ -55,10 +54,13 @@ export default function AudioPlayer() {
     });
 
     return (
-        <div className="audio-player" title={songs[songIndex]}>
+        <div
+            className="audio-player"
+            title={`${songs[songIndex].title} by ${songs[songIndex].artist}`}
+        >
             <audio ref={player}>
                 <source
-                    src={`${repo}/${songs[songIndex].split(" by")[0]}.mp3`}
+                    src={`${repo}/${songs[songIndex].title}.mp3`}
                     type="audio/mpeg"
                 />
             </audio>
@@ -74,14 +76,16 @@ export default function AudioPlayer() {
                 />
             </div>
 
-            <div className="song-info">
-                <div className="song-title">
-                    {songs[songIndex].split(" by")[0].toUpperCase()}
+            <a href={songs[songIndex].link} target="_blank" rel="noreferrer">
+                <div className="song-info">
+                    <div className="song-title">
+                        {songs[songIndex].title.toUpperCase()}
+                    </div>
+                    <div className="song-artist">
+                        {songs[songIndex].artist.toUpperCase()}
+                    </div>
                 </div>
-                <div className="song-artist">
-                    {songs[songIndex].split(" by")[1].toUpperCase()}
-                </div>
-            </div>
+            </a>
 
             <div className="controls">
                 <FontAwesomeIcon icon={faBackwardStep} onClick={handlePrev} />

@@ -1,7 +1,13 @@
 .mosaic-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     gap: 0.5rem;
+}
+
+.mosaic-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .thumbnail {
@@ -14,7 +20,7 @@
 }
 
 .thumbnail img:hover {
-    filter: brightness(125%);
+    filter: brightness(105%);
 }
 
 .tag {
@@ -25,51 +31,11 @@
     transform: translate(-50%, 100%);
     padding: 0.3rem;
     border-radius: 0.2rem;
-    background-color: rgba(34, 34, 34, 0.9);
+    background-color: var(--tp-dark);
     color: #0074d9;
     z-index: 999;
     width: 150%;
     text-align: center;
     font-size: 0.8rem;
     font-weight: 600;
-}
-
-/* SKELETON */
-
-.skeleton-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-}
-
-.top-img {
-    display: block;
-    height: 150px;
-    width: 100%;
-    background: #4c4c4c;
-    object-fit: cover;
-}
-
-.top-img.skeleton-anim,
-.skeleton-title,
-.skeleton-text {
-    animation: skeleton 0.8s ease-in-out infinite alternate;
-}
-
-@keyframes skeleton {
-    to {
-        opacity: 0.6;
-    }
-}
-
-.skeleton-title,
-.skeleton-text {
-    width: 40%;
-    height: 20px;
-    background: #4c4c4c;
-}
-
-.skeleton-text {
-    height: 10px;
 }

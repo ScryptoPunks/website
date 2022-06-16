@@ -1,69 +1,30 @@
 import React, { useState, useEffect } from "react";
 import Mosaic from "../../components/Mosaic";
-import Select from "react-select";
-import { api } from "../../config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 
-export default function App() {
+export default function Collection({ data }) {
     const [options, setOptions] = useState([]);
     const [layers, setLayers] = useState([]);
-
     const [metadata, setMetadata] = useState([]);
-    const [database, setDatabase] = useState();
-    const [filters, setFilters] = useState([[], [], [], [], [], [], []]);
-    const [wallet, setWallet] = useState();
-    const [ranks, setRanks] = useState();
+    const [filters, setFilters] = useState(Array.from(Array(7), () => []));
+    const [opened, setOpened] = useState(Array.from(Array(7), () => false));
     const [filtered, setFiltered] = useState([]);
 
     const handleChange = (selected, index) => {
-        console.log("Handle change");
         let copy = [...filters];
-        copy[index] = selected.map((elt) => {
-            return elt["value"];
+        copy[index] = [];
+        Array.from(selected.children).map((s) => {
+            if (s.firstChild.firstChild.checked)
+                copy[index].push(s.firstChild.firstChild.value);
+            return undefined;
         });
         setFilters(copy);
     };
 
-    const checkValid = (nft) => {
-        // console.count("Check valid");
-        if (wallet && !wallet.includes(nft.edition)) {
-            return false;
-        }
-        let isValid = true;
-        for (let i = 0; i < filters.length; i++) {
-            if (
-                filters[i].length > 0 &&
-                !filters[i].includes(nft.attributes[i].value)
-            ) {
-                isValid = false;
-                break;
-            }
-        }
-        return isValid;
-    };
-
-    const sortNFTs = (sort) => {
-        console.count("Sort");
-        if (sort === "Random") {
-            setFiltered(
-                filtered
-                    .map((value) => ({ value, sort: Math.random() }))
-                    .sort((a, b) => a.sort - b.sort)
-                    .map(({ value }) => value)
-            );
-        } else if (sort === "Rank") {
-            let cpy = [...filtered];
-            cpy.sort((a, b) => ranks[a.edition] - ranks[b.edition]);
-            setFiltered(cpy);
-        } else {
-            let cpy = [...filtered];
-            cpy.sort((a, b) => a.edition - b.edition);
-            setFiltered(cpy);
-        }
-    };
-
     useEffect(() => {
-        fetch(`/json/_options.json`)
+        fetch(`/json/_rarity.json`)
             .then((res) => res.json())
             .then((json) => {
                 for (let layer of Object.keys(json)) {
@@ -74,74 +35,91 @@ export default function App() {
         fetch(`/json/_metadata.json`)
             .then((res) => res.json())
             .then((json) => {
-                setMetadata(json);
-                setFiltered(json.filter((nft) => checkValid(nft)));
+                data
+                    ? setMetadata(data.map((nonce) => json[nonce.edition]))
+                    : setMetadata(json);
             });
-        fetch(`/json/_ranks.json`)
-            .then((res) => res.json())
-            .then((json) => setRanks(json));
-        fetch(`${api}/database.json`)
-            .then((res) => res.json())
-            .then((json) => setDatabase(json));
-    }, []);
+    }, [data]);
 
     useEffect(() => {
-        setFiltered(metadata.filter((nft) => checkValid(nft)));
-    }, [filters, wallet]);
+        setFiltered(metadata);
+    }, [metadata]);
 
-    return (
-        <div className="collection-container">
-            <div className="select-container-wrapper">
-                <div className="select-container">
-                    {layers.map((layer, index) => (
+    useEffect(() => {
+        const checkValid = (nft) => {
+            // console.count("Check valid");
+            let isValid = true;
+            for (let i = 0; i < filters.length; i++) {
+                if (
+                    filters[i].length > 0 &&
+                    !filters[i].includes(nft.attributes[i].value)
+                ) {
+                    isValid = false;
+                    break;
+                }
+            }
+            return isValid;
+        };
+        setFiltered(metadata.filter((nft) => checkValid(nft)));
+    }, [filters, metadata]);
+
+    const renderSelect = () => {
+        return (
+            <div className="select-container">
+                {options.length === 7 &&
+                    layers.map((layer, index) => (
                         <div className="select" key={index}>
-                            <span>{layer}</span>
-                            <Select
-                                isMulti
-                                options={options[index]}
-                                onChange={(s) => handleChange(s, index)}
+                            <div
+                                className="layer-btn-container"
+                                onClick={() => {
+                                    let copy = [...opened];
+                                    copy[index] = !copy[index];
+                                    setOpened(copy);
+                                }}
+                            >
+                                <span>{layer.toUpperCase()}</span>
+                                <FontAwesomeIcon
+                                    icon={opened[index] ? faMinus : faPlus}
+                                />
+                            </div>
+                            <div
+                                style={{
+                                    display: opened[index] ? "block" : "none",
+                                }}
                                 className="select-input"
-                                theme={(theme) => ({
-                                    ...theme,
-                                    colors: {
-                                        ...theme.colors,
-                                        primary25: "#222",
-                                        neutral0: "#111",
-                                        dangerLight: "#ffdc00",
-                                        primary: "#ffdc00",
-                                    },
-                                })}
-                            />
+                                onChange={(s) =>
+                                    handleChange(s.currentTarget, index)
+                                }
+                            >
+                                {Object.keys(options[index]).map((option) => (
+                                    <div
+                                        className="option-container"
+                                        key={option}
+                                    >
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                name={option}
+                                                value={option}
+                                            />
+                                            {option.toUpperCase()}
+                                        </label>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     ))}
-                </div>
-                <div className="search-container">
-                    Search by wallet:
-                    <input
-                        type="text"
-                        placeholder="Enter your address"
-                        onChange={(e) => {
-                            const address = e.currentTarget.value;
-                            if (address) {
-                                const x = Object.keys(database)
-                                    .filter((key) => database[key] === address)
-                                    .map((key) => parseInt(key));
-                                setWallet(x);
-                            } else setWallet(undefined);
-                        }}
-                    />
-                </div>
-                <div className="sort-container">
-                    Sort by:
-                    <select onChange={(e) => sortNFTs(e.currentTarget.value)}>
-                        <option value="Ascending">Ascending</option>
-                        <option value="Rank">Rank</option>
-                        <option value="Random">Random</option>
-                    </select>
-                </div>
+            </div>
+        );
+    };
+
+    return (
+        <main className="collection-container">
+            <div className="filter-container">
+                {renderSelect()}
             </div>
 
             <Mosaic data={filtered} />
-        </div>
+        </main>
     );
 }

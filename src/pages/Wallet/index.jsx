@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ErrorPage from "../ErrorPage";
-import Mosaic from "../../components/Mosaic";
 import { useParams } from "react-router-dom";
+import { api } from "../../config";
+import Collection from "../Collection";
 
 export default function Wallet() {
     const [valid, setValid] = useState(true);
@@ -13,7 +14,7 @@ export default function Wallet() {
         if (address.length !== 65 || !address.startsWith("rdx1"))
             setValid(false);
         else {
-            fetch("/json/database.json")
+            fetch(`${api}/database.json`)
                 .then((res) => res.json())
                 .then((json) => {
                     setData(
@@ -34,7 +35,7 @@ export default function Wallet() {
             {valid ? (
                 data && (
                     <main className="wallet-container">
-                        <Mosaic data={data} />
+                        <Collection data={data} />
                     </main>
                 )
             ) : (
