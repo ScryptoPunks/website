@@ -5,9 +5,9 @@ export default function Header() {
     return (
         <header>
             <div>
-                <a href="/" className="logo">
+                <Link to="/" className="logo">
                     SCRYPTO PUNKS
-                </a>
+                </Link>
             </div>
             <nav>
                 <Link to="/collection">GALLERY</Link>

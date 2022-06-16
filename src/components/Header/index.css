@@ -4,7 +4,7 @@ header {
     align-items: center;
     padding: 1rem;
     border-bottom: 1px solid var(--darker);
-    background: rgba(17, 17, 17, 0.9);
+    background: var(--tp-dark);
 
     position: absolute;
     top: 0;

@@ -117,7 +117,7 @@ export default function Trading() {
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                Click here to check the database
+                                Click here to access the database
                             </a>
                         </h4>
                     </div>
